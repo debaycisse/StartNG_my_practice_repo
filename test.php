@@ -3,7 +3,7 @@
 <?php
 
 
-    
+    echo $_SERVER ;
 
 
     // **************function 
