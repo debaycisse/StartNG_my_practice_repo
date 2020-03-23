@@ -3,7 +3,9 @@
 <?php
 
 
-
+// concerning the ask, check the below links:
+// https://www.php.net/manual/en/function.file-put-contents.php
+// https://www.php.net/manual/en/function.fwrite.php
 
 
 
