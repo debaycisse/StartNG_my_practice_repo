@@ -7,7 +7,11 @@
 // https://www.php.net/manual/en/function.file-put-contents.php
 // https://www.php.net/manual/en/function.fwrite.php
 
-
+// // Below creates a file and adds contents to it.
+// $fp = fopen('./testfilename.txt', 'w');  // specifies the name of the file and mode (i.e w for write, r for read and so on)
+// fwrite($fp, 'the content of the file to be written'); // use the above function which opens file to save the specified texts or contents
+// fclose($fp); // close the file after writing contents to it.
+// echo 'done writing';
 
 
 

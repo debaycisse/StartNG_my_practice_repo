@@ -1,5 +1,26 @@
 <?php
-    print_r($_POST)
+
+
+
+    // Fetching user name
+    $username = $_POST['user_name'];
+    // Creating filename, using the username
+    $filename = ${"$username".".txt"};
+    //Opening the file with the username and .txt extension
+    $fp = fopen($filename, 'w');
+    // Creating content to write into the opened file
+    $content = "<h1>Users Contact Details:</h1><br />
+    <p>First Name  : $_POST[first_name] <p/>
+    <p>Last Name   : $_POST[last_name] <p/>
+    <p>Username    : $_POST[user_name] <p/>
+    "; 
+    // Writing the contents in to the file
+    fwrite($fp, $content);
+    // Closing the file
+    fclose($fp);
+
+
+    // print_r($_POST)
 
     // Check if the form is submitted 
     //  if ( isset( $_GET['submit'] ) ) { 
