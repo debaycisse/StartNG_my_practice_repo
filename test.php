@@ -3,6 +3,80 @@
 <?php
 
 
+
+
+
+
+
+
+
+    
+    // **************URL encoding
+    // error_reporting(E_ALL);
+    // $foo = "This is a complex value & it needs to be URL-encoded.";
+    // // Output the original string
+    // echo $foo, "<br /><br />";   // This is a complex value & it needs to be URL-encoded.
+    // // URL encode the string
+    // $bar = urlencode($foo);
+    // // Output the URL-encoded string
+    // echo $bar, "<br /><br />";    // This+is+a+complex+value+%26+it+needs+to+be+URL-encoded.
+    // // Decode the string and output it.
+    // echo urldecode($bar);  // This is a complex value & it needs to be URL-encoded.
+
+
+
+    // // **********$_SERVER
+    // The $_SERVER has alot of usefulness, kindly read up the php manual about it
+
+    // // Example
+    // if(isset($_SERVER['HTTP_REFERER']))
+    // {
+    // echo $_SERVER['HTTP_REFERER'];
+    // }
+    // else
+    // {
+    // echo "No referer set!";
+    // }
+
+    // /* Example
+    // * Note that <pre> tags and newline characters (\n) are used
+    // * for the sake of legibility
+    // */
+    // // Path to the current file (i.e. '/simple_blog/test.php')
+    // echo "<b>Path to the current php file: </b>", $_SERVER['PHP_SELF'], "<br />";
+    // // Information about the user's browser
+    // echo "<b>Info about the user's browser: </b>", $_SERVER['HTTP_USER_AGENT'], "<br />";
+    // // Address of the page that referred the user (if any)
+    // echo "<b>referrer page's web-address: </b>", $_SERVER['HTTP_REFERER'], "<br />";
+    // // IP address from which the user is viewing the script
+    // echo "<b>user's ip address: </b>", $_SERVER['REMOTE_ADDR'], "<br />";
+    // // Human-readable export of the contents of $_SERVER
+    // print_r($_SERVER);
+
+
+    // Example
+    // echo "Welcome to $_SERVER[HTTP_HOST]!";
+
+    // **********testing error_reporting(E_ALL)
+    // error_reporting(E_ALL);
+    // $foo = "I'm outside the function!";
+
+    // function test(){
+    //     global $foo; // eventhough, $foo is declared outside the function, it is still available in the function code black via the help of 'global'
+    //     return $foo;
+    // }
+    
+    // echo test();
+    
+
+
+    // **********Variable Scope
+    // error_reporting(0);
+    // $foo = "Some Values"; 
+    // include_once 'extra.php';  // $foo is declared or available in extra.php file.
+    // $bar = "Another Values"; // $bar is not declared or available in extra.php file.
+    // echo "test.php: Foo is $foo, and bar is $bar. <br />";
+
     
 
 
