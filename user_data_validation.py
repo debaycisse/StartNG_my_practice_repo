@@ -1,69 +1,62 @@
-import random
-# 1. Collect details first name, last name and email
-first_name = input("Your First name: ")
-last_name = input("Your Last name: ")
-email = input("Your email address: ")
-user_password = ""
-password_length = 7
+import utils  # This is a module that I used to store all my functions
+import itertools  # I use this module to unpack multiple list values
 
+# The below variables get returned values for each user info and store them
+firstName1 = []
+lastName1 = []
+emailAddress1 = []
+userPassw1 = []
 
-# 2. Generate random password for the user joining the first 2 letters of the first name
-# and last 2 letters of the last name with a random string of length 5.
-# This makes your password 9 letters long.
-random_string = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "+", "/", "@", "&", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-random_password = first_name[:2] + last_name[-2:] + random.choices(random_string, k=2)
+# The below asks if the user wants to create a new user
+create_new_user = input("\nCreate new user?.\n(Y)es or (N)o: ")
+# The user's answer from the above prompt is used to
+# keep on creating more user accounts until user indicates
+# that he or she is done with new user account creation
+while create_new_user.upper() == "Y" or create_new_user.upper() == "YES":
 
+    # Collect user's data and store them in the below 3 variables
+    first_name = input("\nYour First name: ")
+    last_name = input("Your Last name: ")
+    email = input("Your email address: ")
 
+    # After collecting the 3 values for the above 3 variables
+    # Let's get the user's password satisfaction status and
+    # his/her preferred password; that is, does the user
+    # prefer the auto-generated password or manual one which
+    # will be inserted by him or her
+    auto_generate_password = utils.auto_password(first_name, last_name)
 
-# 3. Show user password and ask if he or she is satisfied with it. If yes, print out user
-# details nicely from the container and that’s the end of the program, if no, ask user
-# to choose a password himself.
+    # Ask the user, if he or she is satistifed with the generated password.
+    password_satisfaction_status = \
+        input(f'Use auto-generated password, {auto_generate_password} as your password: (Y)es or (N)o ')
 
-# print(f'{random_password} has been auto-generated for you as password')
-password_satisfaction = input(f'Use {random_password} as your password: (Y)es or (N)o ')
-if password_satisfaction.upper() == 'Y':
-    # Print User's details
-    user_password = password_satisfaction
-    user_detail = {
-        "First Name"    : first_name,  #input("Your First Name: "),
-        "Last Name"     : last_name,  #input("Your Last Name: "),
-        "Email"         : email,  #input("Your Email address: ")
-        "Password"      :   user_password
-    }
-    print(user_detail)
+    # If yes, return the value to user_password variable
+    user_password = utils.password_satisfaction(password_satisfaction_status, auto_generate_password)
 
-# 4. If user inputs password, make sure it is longer than 7 characters before ending the
-# program and printing out user details. If it is less than 7, prompt user to input a new
-# password equal to or greater than 7 in length.
+    # user_data function takes the stored user's data, processes it
+    # and returns 4 outputs to the 4 given variables.
+    firstName, lastName, emailAddress, userPassw = utils.user_data(first_name, last_name, email, user_password)
 
+    # The values from the above 4 variables are
+    # added to the values of the 4 given variables
+    firstName1.append(firstName)
+    lastName1.append(lastName)
+    emailAddress1.append(emailAddress)
+    userPassw1.append(userPassw)
+
+    # After each successful registration, below code informs the user
+    print("User created successfully!\n")
+
+    # This checks, if user still wants to continue with more registration or not.
+    create_new_user = input("Create new user?.\n(Y)es or (N)o: ")
+
+# This is only executed when user indicates that he or she is done with registration.
 else:
-    user_password = input("Type in your password: ")
-    while len(user_password) < password_length:
-        print("\n Password must be more than 7 characters.")
-        user_password = input("Type in your password again: ")
-    user_detail = {
-        "First Name": first_name,  # input("Your First Name: "),
-        "Last Name": last_name,  # input("Your Last Name: "),
-        "Email": email,  # input("Your Email address: ")
-        "Password": user_password
-    }
-    print(user_detail)
-
-
-# 5. Create a container for user data such that if the program is run consecutively by
-# two different users, their details get stored in your container (make sure you can
-# identify who has each detail). Print out each item in the container after all users
-# are done.
-# (Hint : Container can be list or dictionary. Don’t use tuples as they are immutable.)
-
-
-
-
-
-# 6. Proper code structure  and presentation such as the use of functions and for
-# appropriate modules will earn you more marks.
-# Remember to always inform user of appropriate action to take.
-
-# ***************************************Submission*****************************************
-# Put up your code file on GitHub. No other form of submission is allowed!
-# Create a new public repository on GitHub. Do not use an old repo. Push direct to the master branch.
+    # Printing the user details for each user in a consecutive session
+    for (firstN, lastN, emailAdd, userPassw) in itertools.zip_longest(firstName1, lastName1, emailAddress1, userPassw1):
+        print(f'''
+            First Name:-    {firstN}
+            Last Name:-     {lastN}
+            Email:-         {emailAdd}
+            Password:-      {userPassw}
+            ''')
