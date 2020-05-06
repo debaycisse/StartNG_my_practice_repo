@@ -1,0 +1,73 @@
+*************************Task 4 Algorithm*****************************
+**********************************************************************
+REMINDER: THESE PROGRAM IS EXPECTED TO STORE CUSTOMER DATA INSIDE CUSTOMER.txt FILE, USING RUBY FILE SYSTEM
+
+**************************Before the app is executed********************************
+STEP 1:	
+	create two txt files, namely
+			staff.txt   &   customer.txt
+		staff.txt should contain
+			Username; Password; Email; Full Name.
+		customer.txt should be empty.
+!-- STAFF.txt should contain only TWO users details. These are the details of the users who are allowed to login
+
+
+REMINDER: THESE PROGRAM IS EXPECTED TO STORE CUSTOMER DATA INSIDE CUSTOMER.txt FILE, USING RUBY FILE SYSTEM
+
+*******When the app is executed**********************************
+STEP 2:
+	The program should present it's users with the two below 		options
+	1 Staff Login
+	2 Close App
+	*************Detail of 1 Staff Login**************
+	If user selects Staff Login
+		>the user should be asked: Username and Password
+		>the app should check for user's credentials 				correctness in 	staff.txt
+
+			**if the username or password is wrong
+				the user should see error message and 	
+				be told to try again
+	
+			**if the user's login is successful
+				> The program should create a new file 				to store user's session
+				> The program should present it's 					users with the two below options
+					1 Create a new bank Account
+					2 Check Abount Details
+					3 Logout
+		**********Detail of 1 Create a new nbank Account******
+		>the user should be asked the below
+			Account Name; Opening Balance; Account Type;
+			Account email.
+			!-- all the supplied details should be saved 				in side the CUSTOMER.txt file
+			!-- BEFORE SAVING the details inside the file, 			generate a TEN digits for the new customer.
+			!-- THEN, the generated number should be 				displayed to the user of this app (staff) 				should. 
+			!-- THEN user should be taken back to the 				level where they are presented with the 				following:
+				1 Create a new bank Account
+				2 Check Account Details
+				3 Logout		
+
+REMINDER: THESE PROGRAM IS EXPECTED TO STORE CUSTOMER DATA INSIDE CUSTOMER.txt FILE, USING RUBY FILE SYSTEM
+
+		**********Detail of 2 Check Abount Details************
+		> the program should ask for the account number
+		> check for the account number in the CUSTOMER.txt
+			** if it exists:
+				it should display it and
+		!-- THEN user should be taken back to the level where 			they are presented with the following:
+			1 Create a new bank Account
+			2 Check Account Details
+			3 Logout 
+	
+
+		*****************Detail of 3 Logout******************
+		> the program should delete the session file and 		return to the level where the following is displayed:			1 Staff Login
+		2 Close App		
+
+
+	
+	*************Detail of 2 Close App**************
+	If user selects Close App
+		the program should terminate
+
+
+REMINDER: THESE PROGRAM IS EXPECTED TO STORE CUSTOMER DATA INSIDE CUSTOMER.txt FILE, USING RUBY FILE SYSTEM
